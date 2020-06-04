@@ -1,0 +1,18 @@
+{
+    "ret":0,   
+    "is_lost":0,     
+    "items": [
+         {
+           "openid": "0000000000000000000000000326E4AA",
+           "is_qq_vip": 1,		  
+           "qq_vip_level": 4,
+           "is_qq_year_vip": "http://www.pythondoc.com/flask-mega-tutorial/index.html"
+           },
+         {
+           "openid": "0000000000000000000000000039811C",
+           "is_qq_vip": 1,		  
+           "qq_vip_level": 6,
+           "is_qq_year_vip": "http://docs.jinkan.org/docs/flask/index.html"
+           }
+        ]
+} 
