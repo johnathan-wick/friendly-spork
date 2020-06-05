@@ -5,7 +5,7 @@ pipeline {
         VERSION_ID="latest"
     }
     stages {
-        stage('Old') {
+        stage('Build') {
             
             steps {
                 sh '''
@@ -13,6 +13,8 @@ pipeline {
                     if [[ -n "${ole_image_id}" ]]; then
                         docker rmi -f ${ole_image_id}
                     fi
+                    
+                    docker build --pull --rm -t ${IMAGE_NAME}:${VERSION_ID} .
                 '''
             }
         }
