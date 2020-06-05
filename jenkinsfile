@@ -4,7 +4,7 @@ pipeline {
         IMAGE_NAME="flask-demo"
     }
     stages {
-        stage('Build') {
+        stage('Old') {
             
             steps {
                 sh '''
