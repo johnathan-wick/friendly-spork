@@ -37,10 +37,8 @@ pipeline {
             
             steps {
                 sh '''
-                container_id=`docker ps|grep ${IMAGE_ADDR}:${VERSION_ID}|awk '{print $1}'`
-                docker container exec -it flaskdv-dev bash
-                py.test
-                exit
+                
+                docker container exec -it flaskdv-dev bash|py.test|exit
                 exit
                 '''
             }
