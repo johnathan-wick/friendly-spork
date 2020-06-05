@@ -52,5 +52,11 @@ def user_login():
 def warp_a_file():
     return app.send_static_file('expected_result.json')
 
+
+@app.route('/<name>')
+def warp_a_variable(name):
+    return "Hello, " + name
+
+    
 if __name__ == "__main__":
     app.run()
