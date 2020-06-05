@@ -18,6 +18,21 @@ pipeline {
                 '''
             }
         }
+        stage('DeployToQA') {
+
+            steps {
+                withEnv(['JENKINS_NODE_COOKIE=dontKillMe']) {
+                    sh '''
+                        container_id=`docker ps|grep ${IMAGE_ADDR}:${VERSION_ID}|awk '{print $1}'`
+                        if [ -n "${container_id}" ]; then
+                            docker stop "${container_id}"
+                        	docker rm -f "${container_id}"
+                        fi
+                        docker run -dt -P --name "flaskdv-dev" --entrypoint "python" "flask-demo:latest" -m flask run --no-debugger --no-reload --host 0.0.0.0 --port 5000
+                    '''
+                }
+            }
+        }
         stage('Test') {
             
             steps {
