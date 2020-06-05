@@ -36,13 +36,15 @@ pipeline {
         stage('Test') {
             
             steps {
-                echo "done"
+                sh '''
+                container_id=`docker ps|grep ${IMAGE_ADDR}:${VERSION_ID}|awk '{print $1}'`
+                docker container exec -it "${container_id}" bash
+                py.test
+                exit
+                exit
+                '''
             }
-            post {
-                always {
-                    echo 'test-reports/results.xml'
-                }
-            }
+
         }
     }
 }
