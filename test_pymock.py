@@ -17,7 +17,7 @@ class TestLogin(unittest.TestCase):
         })
         res = requests.post(url,p_body).json()
 
-        self.assertEqual("Login Succss", res['msg'])
+        self.assertEqual("Login Success", res['msg'])
 
     def test_get_from_file(self):
         url = "http://127.0.0.1:5000/four"
