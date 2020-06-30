@@ -6,12 +6,8 @@ app = Flask(__name__)
 
 
 @app.route('/one')
-def get_user_list():
-    data = {
-        "username": "user_1",
-        "password": "password_1"
-    }
-    return json.dumps(data, indent=4)
+def warp_a_file():
+    return app.send_static_file('mock_response.json')
 
 
 @app.route('/two', methods=['GET'])
@@ -47,10 +43,6 @@ def user_login():
             "msg": "Failed to login"
         }
     return json.dumps(data, indent=4)
-
-@app.route('/four')
-def warp_a_file():
-    return app.send_static_file('expected_result.json')
 
 
 @app.route('/<name>')

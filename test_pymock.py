@@ -9,6 +9,24 @@ class TestLogin(unittest.TestCase):
     # def tearDown(self):
     #     print("Test case closed")
 
+    # @classmethod
+    # def setUpClass(cls):
+    #     try:
+    #         with open('./static/testdata.json','r') as cls.t_data:
+    #             print(type(cls.t_data))
+    #     except Exception as e:
+    #         print(e)
+
+    # @classmethod
+    # def tearDownClass(cls):
+    #     pass
+
+    def test_get_from_file(self):
+        url = "http://127.0.0.1:5000/one"
+        res = requests.get(url)
+        self.assertIn('39811C',res.text,)
+        # print(type(res.text))
+
     def test_post_with_json(self):
         url = "http://127.0.0.1:5000/three"
         p_body = json.dumps({
@@ -19,11 +37,7 @@ class TestLogin(unittest.TestCase):
 
         self.assertEqual("Login Success", res['msg'])
 
-    def test_get_from_file(self):
-        url = "http://127.0.0.1:5000/four"
-        res = requests.get(url)
-        self.assertIn('39811C',res.text,)
-        # print(type(res.text))
+    
     
 if __name__ == "__main__":
     unittest.main()

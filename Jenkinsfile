@@ -38,7 +38,7 @@ pipeline {
             steps {
                 sh '''
                 
-                docker container exec -i flaskdv-dev py.test
+                docker container exec -i flaskdv-dev py.test -vv
                 exit
                 '''
             }
