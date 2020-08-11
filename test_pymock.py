@@ -24,7 +24,7 @@ class TestLogin(unittest.TestCase):
     def test_get_from_file(self):
         url = "http://127.0.0.1:5000/one"
         res = requests.get(url)
-        self.assertIn('39811C',res.text,)
+        self.assertIn('00039811C',res.text)
         # print(type(res.text))
 
     def test_post_with_json(self):
